@@ -57,7 +57,7 @@ getLocalBin args = do
 
 stackBuildData :: [String] -> Action ()
 stackBuildData args = do
-  execStackShake_ $ ["build", "hoogle"] ++ args
+  execStackShake_ $ ["build", "--copy-bins", "hoogle"] ++ args
   execStackShake_ $ ["exec", "hoogle", "generate"] ++ args
 
 -- | Execute a stack command for a specified ghc, discarding the output
